@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+  <title>Add APT Repository</title>
+  <style>
+    .field > a {
+      margin-left: 3px;
+      margin-right: 3px;
+    }
+  </style>
+</head>
+
+<body style="width: 500px; margin: 0 auto">
+  <h1 class="title">Repository</h1>
+  <div class="control" style="margin-bottom: 20px">
+    <input class="input is-primary" type="text">
+  </div>
+  <div class="field has-addons">
+    <div class="column"></div>
+    <a class="control button" id="cydia" href="">🟫 Cydia</a>
+    <a class="control button" id="sileo" href="">🟩 Slieo</a>
+    <a class="control button" id="zebra" href="">⬛️ Zebra</a>
+    <a class="control button" id="installer" href="">🟦 Installer</a>
+    <div class="column"></div>
+  </div>
+</body>
+
+<script>
+  cydiaSuffix = "cydia://url/https://cydia.saurik.com/api/share#?source=";
+  sileoSuffix = "sileo://source/";
+  zebraSuffix = "zbra://sources/add/";
+  installerSuffix = "installer://add/repo=";
+  hash = window.location.hash.substr(1);
+  if (hash) {
+    document.getElementById("cydia").href = cydiaSuffix + hash;
+    document.getElementById("sileo").href = sileoSuffix + hash;
+    document.getElementById("zebra").href = zebraSuffix + hash;
+    document.getElementById("installer").href = installerSuffix + hash;
+  }
+</script>
+
+</html>
