@@ -1,31 +1,49 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="height: 100%;">
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, shrink-to-fit=no, viewport-fit=cover">
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
   <title>Add APT Repository</title>
   <style>
-    .field > a {
-      margin-left: 3px;
-      margin-right: 3px;
+    body {
+      height: 100%;
+      font-family: 'Ubuntu', sans-serif;
+    }
+
+    #main {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    #repo-title {
+      font-size: 2.2rem;
+    }
+
+    #repo-url {
+      color: #a3a3a3;
+    }
+
+    #main > a {
+      display: flex;
+      align-items: center;
+      color:black;
+      font-size:1.3rem;
     }
   </style>
 </head>
 
-<body style="width: 500px; margin: 0 auto">
-  <h1 class="title">Repository</h1>
-  <div class="control" style="margin-bottom: 20px">
-    <input class="input is-primary" type="text">
-  </div>
-  <div class="field has-addons">
-    <div class="column"></div>
-    <a class="control button" id="cydia" href="">🟫 Cydia</a>
-    <a class="control button" id="sileo" href="">🟩 Slieo</a>
-    <a class="control button" id="zebra" href="">⬛️ Zebra</a>
-    <a class="control button" id="installer" href="">🟦 Installer</a>
-    <div class="column"></div>
+<body>
+  <div id="main">
+    <p id="repo-title"></p>
+    <p id="repo-url"></p><br/>
+    <a id="cydia" href="">🟫 Add Source to Cydia</a><br/>
+    <a id="sileo" href="">🟩 Add Source to Slieo</a><br/>
+    <a id="zebra" href="">⬛️ Add Source to Zebra</a><br/>
+    <a id="installer" href="">🟦 Add Source to Installer</a>
   </div>
 </body>
 
@@ -36,10 +54,15 @@
   installerSuffix = "installer://add/repo=";
   hash = window.location.hash.substr(1);
   if (hash) {
+    document.getElementById("repo-title").innerHTML = "Repository Address";
+    document.getElementById("repo-url").innerHTML = hash;
     document.getElementById("cydia").href = cydiaSuffix + hash;
     document.getElementById("sileo").href = sileoSuffix + hash;
     document.getElementById("zebra").href = zebraSuffix + hash;
     document.getElementById("installer").href = installerSuffix + hash;
+  } else {
+    document.getElementById("repo-title").innerHTML = "Error:"
+    document.getElementById("repo-url").innerHTML = "Hash is empty.";
   }
 </script>
 
