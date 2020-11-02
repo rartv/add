@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, shrink-to-fit=no, viewport-fit=cover">
   <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
-  <title>Add APT Repository</title>
+  <title>添加 APT 源</title>
   <style>
     body {
       height: 100%;
@@ -40,10 +40,10 @@
   <div id="main">
     <p id="repo-title"></p>
     <p id="repo-url"></p><br/>
-    <a id="cydia" href="">🟫 Add Source to Cydia</a><br/>
-    <a id="sileo" href="">🟩 Add Source to Slieo</a><br/>
-    <a id="zebra" href="">⬛️ Add Source to Zebra</a><br/>
-    <a id="installer" href="">🟦 Add Source to Installer</a>
+    <a id="cydia" href="">🟫 添加源到 Cydia</a><br/>
+    <a id="sileo" href="">🟩 添加源到 Slieo</a><br/>
+    <a id="zebra" href="">⬛️ 添加源到 Zebra</a><br/>
+    <a id="installer" href="">🟦 添加源到 Installer</a>
   </div>
 </body>
 
@@ -54,15 +54,15 @@
   installerSuffix = "installer://add/repo=";
   hash = window.location.hash.substr(1);
   if (hash) {
-    document.getElementById("repo-title").innerHTML = "Repository Address";
+    document.getElementById("repo-title").innerHTML = "源地址";
     document.getElementById("repo-url").innerHTML = hash;
     document.getElementById("cydia").href = cydiaSuffix + hash;
     document.getElementById("sileo").href = sileoSuffix + hash;
     document.getElementById("zebra").href = zebraSuffix + hash;
     document.getElementById("installer").href = installerSuffix + hash;
   } else {
-    document.getElementById("repo-title").innerHTML = "Error:"
-    document.getElementById("repo-url").innerHTML = "Hash is empty.";
+    document.getElementById("repo-title").innerHTML = "错误:"
+    document.getElementById("repo-url").innerHTML = "源地址不能为空";
   }
 </script>
 
